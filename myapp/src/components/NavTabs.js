@@ -22,7 +22,7 @@ return (
       <div className="collapse navbar-collapse border" id="navbarExample01">
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
-            <a className={currentPage === 'About' ? 'nav-link active' : 'nav-link'} href="#About" onClick={() => handlePageChange('AboutMe')}>About Me</a>
+            <a className={currentPage === 'AboutMe' ? 'nav-link active' : 'nav-link'} href="#AboutMe" onClick={() => handlePageChange('AboutMe')}>About Me</a>
           </li>
           <li className="nav-item">
             <a className={currentPage === 'Portfolio' ? 'nav-link active' : 'nav-link'} href="#Portfolio" onClick={() => handlePageChange('Portfolio')}> Portfolio</a>

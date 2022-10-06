@@ -1,9 +1,24 @@
 import React from 'react';
-
+import axios from 'axios';
+import fileDownload from 'js-file-download';
+import myPDF from '../files/myResume.pdf'
 
 function Resume() {
+
+// const handleDownload = (url, filename) => {
+//   axios.get(url, {
+//     responseType: 'blob',
+//   })
+//   .then((res) => {
+//     fileDownload(res.data,filename)
+//   })
+
+// }
+
+return (
 <div>
   <h4> Matthew Hodges' Resume</h4>
+<a className="button" href={myPDF} download="My_file.pdf"> Download file </a>
 <p>
 mjhodges@zoho.com 
 Matthew Hodges
@@ -11,7 +26,7 @@ Objective:	To begin my career as a web developer at a leading company.
 Experience	
 
 
-Aug 2018 – April 2022      Tesla, Inc.     	Las Vegas, NV
+Aug 2018 April 2022      Tesla, Inc.     	Las Vegas, NV
 Inside Energy Advisor
 •	Guiding customer leads from initial conversation to installation and beyond to permission to operate 
 •	Consistently upsold customers on adding the Powerwall 2 to their system design.
@@ -20,7 +35,7 @@ Inside Energy Advisor
 •	Generating referral customers through a great customer experience through installation.
 •	Reducing cancellations by using sales persuasion
 •	Successfully sold and completed 2 MW of installed solar nationwide.
-	Oct 2017 – Aug 2018   Tesla, Inc.	Sacramento, CA
+	Oct 2017 Aug 2018   Tesla, Inc.	Sacramento, CA
 Field Energy Advisor
 •	Explaining the benefits and details about solar in-person
 •	Received award from manager for embodying the company's core competencies.
@@ -28,7 +43,7 @@ Field Energy Advisor
 •	Working closely with the local operations team to complete solar • Maintained a clean vehicle at all times.
 •	Operated independently and self-motivated to continue to generate new business for the company.
 •	Working with my manager to train new Field Energy Advisors. • Frequently participated in new sales training.
-	Feb 2015 – Oct 2017      SolarCity, Inc.	Roseville, CA
+	Feb 2015 Oct 2017      SolarCity, Inc.	Roseville, CA
 Inside Energy Consultant
 •	Receiving inbound sales calls. Building value in the company through relationship building.
 •	Using a consultative approach to discern customer's needs and pain points.
@@ -54,6 +69,8 @@ GPA: 3.0
 Interests	Reading, Exercising, Spending time with Family, Exploring and Hiking
 </p>
 </div>
+)
 }
+
 
 export default Resume;
