@@ -27,5 +27,8 @@
   "bugs": {
     "url": "https://github.com/m-j-hodges/squirrely-octopus/issues"
   },
-  "homepage": "https://github.com/m-j-hodges/squirrely-octopus#readme"
+  "homepage": "https://github.com/m-j-hodges/squirrely-octopus#readme",
+  "dependencies": {
+    "concurrently": "^7.4.0"
+  }
 }
