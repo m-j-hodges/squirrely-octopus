@@ -6,12 +6,12 @@ function Portfolio() {
 <div className="card">
     <h4 className="card-title">Projects I have completed </h4>
     <ul> 
-      <li className="card-text"> Programming Quiz using Javascript</li>
-      <li className="card-text"> Password generator using Javascript</li>
-      <li className="card-text"> A website for searching for prime real estate investment markets in the U.S.</li>
-      <li className="card-text"> A weather search engine using Javascript </li>
-      <li className="card-text"> A README Generator using Javascript </li>
-      
+      <li className="card-text"> <a href="https://github.com/m-j-hodges/Programming_Quiz"> Programming Quiz using Javascript </a></li>
+      <li className="card-text"><a href="https://github.com/m-j-hodges/password_generator"> Password generator using Javascript </a></li>
+      <li className="card-text"><a href="https://real-estate-top-5.herokuapp.com"> A website for searching for prime real estate investment markets in the U.S. </a></li>
+      <li className="card-text"><a href="https://github.com/m-j-hodges/Weather-Search-engine">A weather search engine using Javascript </a> </li>
+      <li className="card-text"><a href=""> A README Generator using Javascript </a></li>
+      <li className="card-text"><a href="https://positive-thoughts-9-28-2022.herokuapp.com"> React Project- Positive Thoughts</a></li>
     </ul>
 </div>
 
