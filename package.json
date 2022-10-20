@@ -1,0 +1,31 @@
+{
+  "name": "squirrely-octopus",
+  "version": "1.0.0",
+  "description": "my portfolio using React",
+  "main": "index.js",
+  "scripts": {
+    "client": "cd client && npm start",
+    "server": "cd server && npm start",
+    "start": "concurrently \" cd server && npm start\" \" cd client && npm start\"",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "cd client && npm install && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/m-j-hodges/squirrely-octopus.git"
+  },
+  "keywords": [
+    "node",
+    "REACT",
+    "javascript"
+  ],
+  "author": "Matt Hodges",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/m-j-hodges/squirrely-octopus/issues"
+  },
+  "homepage": "https://github.com/m-j-hodges/squirrely-octopus#readme"
+}
