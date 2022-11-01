@@ -1,0 +1,23 @@
+
+const router = require('express').Router();
+const Inquiry = require('../../models')
+
+router.post('/', (req, res) => {
+const username = req.body.body.name
+const newEmail = req.body.body.email
+const newMessage = req.body.body.message
+
+try {
+const newInquiry = Inquiry.create({name: username, email: newEmail, message: newMessage})
+.then((result) => {console.log(result)
+res.status(200).json({success:true})
+})
+}
+catch {
+res.json({message: 'There was an error saving your message.'})
+}
+}
+)
+
+
+module.exports = router

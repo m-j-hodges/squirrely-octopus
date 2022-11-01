@@ -4,3 +4,10 @@ export function validateEmail(email) {
   return checkEmail.test(String(email).toLowerCase());
 }
 
+export function checkInputLength(input) {
+  
+  if(input.count > 0) {
+    return true
+  }
+  else { return false}
+}

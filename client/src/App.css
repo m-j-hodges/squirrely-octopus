@@ -41,3 +41,8 @@
     transform: rotate(360deg);
   }
 }
+
+.custom-message {
+  font-size: 10px;
+
+}
