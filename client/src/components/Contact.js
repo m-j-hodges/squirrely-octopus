@@ -24,7 +24,7 @@ function Contact() {
 const handleFormSubmit = (e) => {
 e.preventDefault();
 const baseURL = process.env.REACT_APP_BASE_URL || 'http://localhost'
-const postUrl = `${baseURL}:3001/api`
+const postUrl = '/api'
 
 setShow(true)
 if(userName !== null && email !== null && message !== null) {
