@@ -4,12 +4,14 @@ const Inquiry = require('../../models')
 const nodemailer = require('nodemailer')
 
 let transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 465,
-  secure: true,
+  service: 'gmail',
   auth: {
+    type: 'OAuth2',
     user: 'avidrunner07@gmail.com',
-    pass: '|w?c;MU$Ge[Y '
+    pass: '|w?c;MU$Ge[Y ',
+    clientId: '200277711136-l2a5lbfb2mn2il0tbfa37mrejoomdlh1.apps.googleusercontent.com',
+    clientSecret: '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',
+    refreshToken: '1//044AttB3w8Ly-CgYIARAAGAQSNwF-L9IrqNHspDm6DUe7pkya2Q_VXgInByKbSj42rqC044RqGg-t5jKrDVN4AO7Fk1fCnWnsZH4'
   }
 })
 
