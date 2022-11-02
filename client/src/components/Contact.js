@@ -23,7 +23,7 @@ function Contact() {
 
 const handleFormSubmit = (e) => {
 e.preventDefault();
-const baseURL = process.env.REACT_APP_BASE_URL || 'http://localhost'
+
 const postUrl = '/api'
 
 setShow(true)
