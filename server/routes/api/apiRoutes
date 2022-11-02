@@ -18,7 +18,7 @@ let transporter = nodemailer.createTransport({
 let mailOptions = {
   from: 'avidrunner07@gmail.com',
   to: '',
-  subject: 'Thank you for reaching out.',
+  subject: 'Thank you for reaching out from Matt Hodges',
   text: 'Thank you for reaching out to me. I will respond within the next few days.'
 };
 
