@@ -23,7 +23,8 @@ function Contact() {
 
 const handleFormSubmit = (e) => {
 e.preventDefault();
-const postUrl = `${process.env.baseUrl}:${process.env.PORT}/api` || 'http://localhost:3001/api/'
+const baseURL = process.env.REACT_APP_BASE_URL || 'http://localhost'
+const postUrl = `${baseURL}:3001/api`
 
 setShow(true)
 if(userName !== null && email !== null && message !== null) {
