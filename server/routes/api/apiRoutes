@@ -1,8 +1,26 @@
 
 const router = require('express').Router();
 const Inquiry = require('../../models')
+const nodemailer = require('nodemailer')
 
-router.post('/', (req, res) => {
+let transporter = nodemailer.createTransport({
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
+  auth: {
+    user: 'avidrunner07@gmail.com',
+    pass: '|w?c;MU$Ge[Y '
+  }
+})
+
+let mailOptions = {
+  from: 'avidrunner07@gmail.com',
+  to: '',
+  subject: 'Thank you for reaching out.',
+  text: 'Thank you for reaching out to me. I will respond within the next few days.'
+};
+
+router.post('/', async (req, res) => {
 const username = req.body.body.name
 const newEmail = req.body.body.email
 const newMessage = req.body.body.message
@@ -10,12 +28,21 @@ const newMessage = req.body.body.message
 try {
 const newInquiry = Inquiry.create({name: username, email: newEmail, message: newMessage})
 .then((result) => {console.log(result)
+
+
 res.status(200).json({success:true})
 })
 }
 catch {
 res.json({message: 'There was an error saving your message.'})
 }
+const findNewRecord = await Inquiry.findOne({email: newEmail})
+mailOptions.to = findNewRecord.email
+transporter.sendMail(mailOptions, (error, info) => {
+  error ? console.log(error) : console.log( `Email sent: ${info.response}`)
+
+})
+
 }
 )
 

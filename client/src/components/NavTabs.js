@@ -49,7 +49,7 @@ return (
       </div>
     </div>
   </nav>
-  <div className="p-5 text-center bg-light">
+  <div className="p-5 text-center navtabs">
     <h1 className="mb-3">Welcome to my Portfolio!</h1>
   </div>
 </div>

@@ -102,8 +102,8 @@ return
     <div> 
       <Header /> 
     <div>
-    <p> This website was built my Matthew Hodges using React</p>
-    <h5> Contact Me: </h5>
+    <p> This website was built by Matthew Hodges using React</p>
+    <h5> Contact Me using the form below: </h5>
     <form className="p-5">
     <div className="form-group">
     <label for="form2">Name:</label>
