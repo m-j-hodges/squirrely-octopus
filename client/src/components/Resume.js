@@ -4,7 +4,7 @@ import fileDownload from 'js-file-download';
 import myPDF from '../files/myResume.pdf'
 import Header from "./NavTabs"
 import {Document, Page} from "react-pdf/dist/esm/entry.webpack5"
-
+import {Helmet} from 'react-helmet-async'
 
 
 function Resume() {
@@ -35,6 +35,9 @@ function changePageNumber() {
 
 return (
 <div>
+<Helmet>
+      <style>{'body { background-color: #E5E5E5; }'}</style>
+</Helmet>
 	<Header/>
   <h4 className="p-5 text-center"> Matthew Hodges' Resume</h4>
 

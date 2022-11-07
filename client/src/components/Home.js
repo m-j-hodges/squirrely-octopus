@@ -1,10 +1,14 @@
 import react from 'react';
 import Header from './NavTabs'
+import {Helmet} from 'react-helmet-async'
 
 function Home() {
 
   return (
     <div>
+    <Helmet>
+      <style>{'body { background-color: #E5E5E5; }'}</style>
+    </Helmet>
     <Header />
     <div className="experience">
     <h2> This is my Home Page</h2>

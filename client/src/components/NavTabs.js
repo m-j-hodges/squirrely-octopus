@@ -12,7 +12,7 @@ import Contact from './Contact'
 import Portfolio from './Portfolio'
 import About from './About'
 import hamburger from '../files/hamburger_menu.png'
-
+import {Helmet} from 'react-helmet-async'
 
 
 function Header({currentPage, handlePageChange}) {
@@ -34,7 +34,7 @@ return (
 </div>
 
   </nav> 
-  <div className="p-5 text-center navtabs">
+  <div className="m-3 p-5 text-center navtabs rounded-5 shadow p-3 mb-5 rounded">
     <h1 className="mb-3">Welcome to my Portfolio!</h1>
   </div>
 </div>

@@ -9,9 +9,13 @@ import Portfolio from './components/Portfolio'
 import Header from './components/NavTabs'
 import PortContainer from './components/portContainer'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React from 'react'
+import {HelmetProvider} from 'react-helmet-async'
+
 
 function App() {
   return (
+    <HelmetProvider>
     <Router>
     <div class="container">
     <Routes> 
@@ -38,6 +42,7 @@ function App() {
     </div>
 
     </Router>
+    </HelmetProvider>
   );
 }
 

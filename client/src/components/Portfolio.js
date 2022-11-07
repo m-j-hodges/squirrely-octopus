@@ -1,10 +1,14 @@
 import react from 'react';
 import Header from './NavTabs'
+import {Helmet} from 'react-helmet-async'
 
 function Portfolio() {
   
   return (
     <div>
+    <Helmet>
+      <style>{'body { background-color: #E5E5E5; }'}</style>
+    </Helmet>
       <Header/>
 <div className="card">
     <h4 className="card-title">Projects I have completed </h4>

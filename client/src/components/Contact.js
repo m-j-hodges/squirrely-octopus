@@ -5,6 +5,7 @@ import $ from 'jquery'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
 import axios from 'axios';
+import {Helmet} from 'react-helmet-async'
 
 
 
@@ -101,6 +102,9 @@ return
 
   return(
     <div> 
+    <Helmet>
+      <style>{'body { background-color: #E5E5E5; }'}</style>
+    </Helmet>
       <Header /> 
     <div>
     <p> This website was built by Matthew Hodges using React</p>
