@@ -21,8 +21,7 @@ code {
 }
 
 #dropdownMenuButton1 {
-  background-image: url(files/hamburger_menu.png);
   width:60px;
-  height:30px;
-  padding: 6px;
+  height:40px;
+  padding: 0px;
 }

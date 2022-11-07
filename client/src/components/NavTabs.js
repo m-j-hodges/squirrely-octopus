@@ -22,8 +22,8 @@ return (
 <div>
   <nav> 
   <div className="dropdown">
-  <div className="btn btn-secondary dropdown-toggle p-0 d-flex justify-content-center" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-    <img width='50%' alt="hamburger_menu" src={hamburger}></img>
+  <div width="70px" height="50px" className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    <img width="30px" className="p-2" alt="hamburger_menu" src={hamburger}></img>
   </div>
   <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
     <li className="dropdown-item"><Link to="/About"> About Me</Link></li>
