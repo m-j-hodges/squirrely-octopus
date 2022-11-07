@@ -1,6 +1,7 @@
 import react from 'react';
 import Header from './NavTabs'
 import {Helmet} from 'react-helmet-async'
+import Footer from './footer'
 
 function Portfolio() {
   
@@ -10,7 +11,7 @@ function Portfolio() {
       <style>{'body { background-color: #E5E5E5; }'}</style>
     </Helmet>
       <Header/>
-<div className="card">
+<div className="card p-3">
     <h4 className="card-title">Projects I have completed </h4>
     <ul> 
       <li className="card-text"> <a href="https://github.com/m-j-hodges/Programming_Quiz"> Programming Quiz using Javascript </a></li>
@@ -21,6 +22,7 @@ function Portfolio() {
       <li className="card-text"><a href="https://positive-thoughts-9-28-2022.herokuapp.com"> React Project- "Positive Thoughts"</a></li>
     </ul>
 </div>
+<Footer />
 </div>
   )
 
