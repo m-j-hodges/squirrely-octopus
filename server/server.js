@@ -10,6 +10,7 @@ const routes = require('./routes')
 
 const db = require('./connection/config');
 app.use(express.static(path.join(__dirname, '../client/build')));
+app.use(express.static(path.join(__dirname, './public')));
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");

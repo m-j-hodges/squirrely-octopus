@@ -2,6 +2,9 @@
 const router = require('express').Router();
 const Inquiry = require('../../models')
 const nodemailer = require('nodemailer')
+const fs = require('fs')
+const path = require('node:path')
+
 
 let transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -44,9 +47,33 @@ transporter.sendMail(mailOptions, (error, info) => {
   error ? console.log(error) : console.log( `Email sent: ${info.response}`)
 
 })
-
 }
 )
+
+router.get('/getImage', (req, res) => {
+  
+const imgArray = [ 
+  {img_1: '../../public/img1.jpg'},
+  {img_2: '../../public/img2.jpg'},
+  {img_3: '../../public/img3.jpg'},
+  {img_4: '../../public/img4.jpg'},
+  {img_5: '../../public/img5.jpg'},
+  {img_6: '../../public/img6.jpg'}
+]
+
+const randomImage = imgArray[Math.floor(Math.random()*5)]
+let childRandomImage
+for(let value of Object.values(randomImage)) {
+  childRandomImage = value
+}
+const pathRandomImage = path.join(__dirname, childRandomImage)
+
+res.sendFile(pathRandomImage, (err)=> {
+ err ? console.log(err) : console.log('image send successfully')
+
+})
+
+})
 
 
 module.exports = router

@@ -11,6 +11,7 @@ import PortContainer from './components/portContainer'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import React from 'react'
 import {HelmetProvider} from 'react-helmet-async'
+import Certs from './components/certifications'
 
 
 function App() {
@@ -22,6 +23,10 @@ function App() {
     <Route
     path="/" 
     element={<Home />}/>
+    <Route
+    path="/certs"
+    element={<Certs />}
+    />
     <Route
     path="/contact"
     element={<Contact/>}

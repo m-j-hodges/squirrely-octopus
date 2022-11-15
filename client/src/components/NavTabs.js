@@ -30,6 +30,7 @@ return (
     <li className="dropdown-item"><Link to="/portfolio">Portfolio</Link> </li>
     <li className="dropdown-item"><Link to="/contact">Contact Me</Link></li>
     <li className="dropdown-item"><Link to="/resume"> Resume </Link></li> 
+    <li className="dropdown-item"><Link to="/Certs"> Certifications </Link></li> 
   </ul>
 </div>
 
