@@ -15,6 +15,8 @@ import Certs from './components/certifications'
 
 
 function App() {
+
+
   return (
     <HelmetProvider>
     <Router>
@@ -22,7 +24,7 @@ function App() {
     <Routes> 
     <Route
     path="/" 
-    element={<Home />}/>
+    element={<About />}/>
     <Route
     path="/certs"
     element={<Certs />}

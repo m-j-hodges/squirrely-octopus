@@ -5,8 +5,12 @@ import Footer from './footer'
 import axios from 'axios';
 import {useEffect, useState} from 'react'
 import Contact from './Contact';
+import {useNavigate } from 'react-router-dom'
 
 function Portfolio() {
+const navigate = useNavigate()
+
+const refreshPage = () => navigate(0)
 
 const [imgUrl0, setImgUrl0] = useState('')
 const [imgUrl1, setImgUrl1] = useState('')
@@ -46,12 +50,12 @@ const [imgUrl5, setImgUrl5] = useState('')
 
   
 let cardInfo = [
-  {cardLink: 'https://m-j-hodges.github.io/Programming_Quiz/', cardTitle: 'Programming Quiz using Javascript', source: '/api/getImage'},
-  {cardLink: 'https://m-j-hodges.github.io/password_generator/', cardTitle: 'Password generator using Javascript', source:'/api/getImage'},
+  {cardLink: 'https://positive-thoughts-9-28-2022.herokuapp.com', cardTitle: 'React App where you can see positive quotes', source:'/api/getImage'},
   {cardLink: 'https://real-estate-top-5.herokuapp.com', cardTitle: 'Web App where you can search for Top real estate investment properties', source:'/api/getImage'},
   {cardLink: 'https://m-j-hodges.github.io/Weather-Search-engine/', cardTitle: 'Weather search website using Javascript', source:'/api/getImage'},
-  {cardLink: '#', cardTitle: 'README generator using Node.js', source:''},
-  {cardLink: 'https://positive-thoughts-9-28-2022.herokuapp.com', cardTitle: 'React App where you can see positive quotes', source:'/api/getImage'},
+  {cardLink: 'https://m-j-hodges.github.io/Programming_Quiz/', cardTitle: 'Programming Quiz using Javascript', source: '/api/getImage'},
+  {cardLink: 'https://m-j-hodges.github.io/password_generator/', cardTitle: 'Password generator using Javascript', source:'/api/getImage'},
+  {cardLink: 'https://github.com/m-j-hodges/Readme_Generator', cardText: 'This is programmed in Node.js, so there is no webpage', cardTitle: 'README generator using Node.js', source:''}
 ]
 
 
@@ -68,7 +72,7 @@ let cardInfo = [
   <img src='/api/getImage' className="card-img-top" alt="..." />
   <div className="card-body">
     <h5 className="card-title">{card.cardTitle}</h5>
-    <p className="card-text">{card.cardLink}</p>
+    <p className="card-text">{card.cardText || card.cardLink}</p>
     <a href={card.cardLink} className="btn btn-primary d-flex justify-content-center">View project</a>
   </div>
 </div>))}
