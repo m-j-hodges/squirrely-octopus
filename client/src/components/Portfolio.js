@@ -69,7 +69,7 @@ let cardInfo = [
     <h4 className="card-title">Projects I have completed </h4>
     <div className="row p-3">
       {cardInfo && cardInfo.map((card) => (<div className="card sm-col-3 p-3 m-2" style={{width: 18 + 'rem'}}>
-  <img src='/api/getImage' className="card-img-top" alt="..." />
+  <img width="100%" src='/api/getImage' className="card-img-top" alt="..." />
   <div className="card-body">
     <h5 className="card-title">{card.cardTitle}</h5>
     <p className="card-text">{card.cardText || card.cardLink}</p>

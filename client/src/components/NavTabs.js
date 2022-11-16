@@ -21,7 +21,7 @@ function Header({currentPage, handlePageChange}) {
 return (
 <div>
   <nav> 
-  <div className="dropdown">
+  <div id="hamburger-dropdown" className="dropdown">
   <div width="70px" height="50px" className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
     <img width="30px" className="p-2" alt="hamburger_menu" src={hamburger}></img>
   </div>
@@ -32,6 +32,30 @@ return (
     <li className="dropdown-item"><Link to="/resume"> Resume </Link></li> 
     <li className="dropdown-item"><Link to="/Certs"> Certifications </Link></li> 
   </ul>
+  </div>
+  <div id="horizontal-nav" className="navbar navbar-expand-lg bg-light">
+  <div className="container-fluid">
+    <a className="navbar-brand" href="#">Matt Hodges</a>
+    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span>
+    </button>
+    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+        <li className="nav-item">
+          <Link className="nav-link active" to="/">About Me</Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/portfolio">Portfolio</Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/resume">Resume</Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/Certs">Certifications</Link>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
 
   </nav> 
