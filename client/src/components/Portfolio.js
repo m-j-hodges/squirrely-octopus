@@ -20,30 +20,7 @@ const [imgUrl4, setImgUrl4] = useState('')
 const [imgUrl5, setImgUrl5] = useState('')
 
 
-// useEffect(() => {
-   
-// const image = async () => await axios.get('/api/getImage')
-//   .then((response) => {
-// return (response)
-//   })
 
-  // const randomImg = response.data[Math.floor(Math.random()*5)]
-  // const randomImg1 = response.data[Math.floor(Math.random()*5)]
-  // const randomImg2 = response.data[Math.floor(Math.random()*5)]
-  // const randomImg3 = response.data[Math.floor(Math.random()*5)]
-  // const randomImg4 = response.data[Math.floor(Math.random()*5)]
-  // const randomImg5 = response.data[Math.floor(Math.random()*5)]
-  // setImgUrl0(randomImg.urls.small)
-  // setImgUrl1(randomImg1.urls.small)
-  // setImgUrl2(randomImg2.urls.small)
-  // setImgUrl3(randomImg3.urls.small)
-  // setImgUrl4(randomImg4.urls.small)
-  // setImgUrl5(randomImg5.urls.small)
-//   })
-    
-//     }
-// )
-  
 
     
 
