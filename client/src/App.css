@@ -12,6 +12,8 @@
 
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
+
 @media only screen and (max-width: 772px) {
   #horizontal-nav {
     display:none;
@@ -28,6 +30,10 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+.text-title {
+  font-family: 'Open Sans', sans-serif;
 }
 
 

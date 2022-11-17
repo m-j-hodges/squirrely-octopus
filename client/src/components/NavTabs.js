@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -15,8 +15,42 @@ import hamburger from '../files/hamburger_menu.png'
 import {Helmet} from 'react-helmet-async'
 
 
-function Header({currentPage, handlePageChange}) {
 
+
+
+
+function Header({currentPage, handlePageChange}) {
+let modIntro = useRef('')
+let [welcomeVar, setWelcomeVar] = useState('')
+let intro = useRef('Welcome to my Portfolio!')
+let i = useRef(0)
+
+useEffect(() => {
+
+
+const interval = setInterval(() => {
+  let newIntro = 'Welcome to my Portfolio!'
+
+    const splitIntro =  newIntro.split('')
+    modIntro.current += splitIntro[i.current]
+    console.log(modIntro.current)
+    console.log(i)
+    setWelcomeVar(modIntro.current)
+    i.current += 1
+  if(modIntro.current.length === splitIntro.length) {
+  // modIntro.current = ''
+  // setWelcomeVar('')
+  // i.current = 0
+  clearInterval(interval)
+}
+  
+  // if(i == intro.split('').length) { i= 0}
+  
+}, 100)
+
+return () => clearInterval(interval)
+
+}, [modIntro, i])
 
 return (
 <div>
@@ -35,7 +69,7 @@ return (
   </div>
   <div id="horizontal-nav" className="navbar navbar-expand-lg bg-light">
   <div className="container-fluid">
-    <a className="navbar-brand" href="#">Matt Hodges</a>
+    <a className="navbar-brand" href="/">Matt Hodges</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -60,7 +94,7 @@ return (
 
   </nav> 
   <div className="m-3 p-5 text-center navtabs rounded-5 shadow p-3 mb-5 rounded">
-    <h1 className="mb-3">Welcome to my Portfolio!</h1>
+    <h1 className="mb-3 text-title">{welcomeVar}</h1>
   </div>
 </div>
 
