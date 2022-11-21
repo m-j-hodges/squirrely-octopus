@@ -11,6 +11,14 @@
   width: 50vw
 
 }
+li {
+  border-radius: 6px;
+}
+
+li:hover {
+  background-color: #DEEDF0;
+
+}
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
 
@@ -34,6 +42,22 @@
 
 .text-title {
   font-family: 'Open Sans', sans-serif;
+}
+
+@keyframes wipe-enter {
+  0% {
+    transform: scale(0, .025);
+  }
+  50% {
+    transform: scale(1, .025);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  #projects-sub {
+    animation-name: wipe-enter;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+  }
 }
 
 

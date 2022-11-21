@@ -20,7 +20,7 @@ function AboutMe() {
     <p> I studied programming with Georgia Tech University through their MERN stack bootcamp where I learned to code in HTML, CSS, Javascript. I look forward to learning other popular web development languages including Java, Python, and Ruby.</p>
     <p> Prior to learning web development, I worked for <a href="https://www.tesla.com">Tesla</a> for seven and a half years. While working for Tesla I was a solar energy consultant and project manager.</p>
 </div>
-<div className="card p-5 m-3 shadow">
+<div className="card p-5 m-3 shadow" id="projects-sub">
   <h5> Projects </h5>
   <a href='https://positive-thoughts-9-28-2022.herokuapp.com'><p> Website about Positive Quotes </p> </a>
   <a href='https://real-estate-top-5.herokuapp.com'><p> Top investment properties search engine </p></a>
