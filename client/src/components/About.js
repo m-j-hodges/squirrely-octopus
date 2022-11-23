@@ -1,10 +1,21 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import Header from "./NavTabs"
 import {Helmet} from 'react-helmet-async'
 import photo from '../files/recent_photo.jpg'
 import Footer from './footer'
 
+
 function AboutMe() {
+ let animateBox = useRef('')
+
+window.addEventListener('scroll', (e) => {
+  if(window.scrollY >= 650) {
+    animateBox.current.classList.add('projects-sub-animation')
+  }
+  window.removeEventListener('scroll', AboutMe)
+
+})
+
 
   return (
     <div> 
@@ -12,7 +23,7 @@ function AboutMe() {
       <style>{'body { background-color: #E5E5E5; }'}</style>
     </Helmet>
       <Header />
-    <div> <img width="300px" className="img-thumbnail rounded mx-auto d-block" src={photo}/>
+    <div> <img width="300px" className="img-thumbnail rounded mx-auto d-block" alt="me in Red Tesla jacket" src={photo}/>
     </div>
 <div className="card p-5 m-3 shadow">
     <h3> About Me</h3>
@@ -20,7 +31,7 @@ function AboutMe() {
     <p> I studied programming with Georgia Tech University through their MERN stack bootcamp where I learned to code in HTML, CSS, Javascript. I look forward to learning other popular web development languages including Java, Python, and Ruby.</p>
     <p> Prior to learning web development, I worked for <a href="https://www.tesla.com">Tesla</a> for seven and a half years. While working for Tesla I was a solar energy consultant and project manager.</p>
 </div>
-<div className="card p-5 m-3 shadow" id="projects-sub">
+<div className="card p-5 m-3 shadow" ref={animateBox} id="projects-sub">
   <h5> Projects </h5>
   <a href='https://positive-thoughts-9-28-2022.herokuapp.com'><p> Website about Positive Quotes </p> </a>
   <a href='https://real-estate-top-5.herokuapp.com'><p> Top investment properties search engine </p></a>
