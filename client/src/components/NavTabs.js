@@ -87,6 +87,9 @@ return (
         <li className="nav-item">
           <Link className="nav-link" to="/Certs">Certifications</Link>
         </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/contact">Contact Me</Link>
+        </li>
       </ul>
     </div>
   </div>
