@@ -3,16 +3,19 @@ import Header from "./NavTabs"
 import {Helmet} from 'react-helmet-async'
 import photo from '../files/recent_photo.jpg'
 import Footer from './footer'
+import 'animate.css'
 
 
 function AboutMe() {
  let animateBox = useRef('')
 
 window.addEventListener('scroll', (e) => {
-  if(window.scrollY >= 650) {
+  if(window.scrollY >= 500) {
     animateBox.current.classList.add('projects-sub-animation')
   }
-  window.removeEventListener('scroll', AboutMe)
+  if(window.scrollY < 500) {
+    animateBox.current.classList.remove('projects-sub-animation')
+  }
 
 })
 

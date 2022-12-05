@@ -34,17 +34,12 @@ li:hover {
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .text-title {
   font-family: 'Open Sans', sans-serif;
 }
 
-@keyframes wipe-enter {
+@keyframes fadeInUp {
   0% {
     transform: scale(0, .025);
   }
@@ -54,8 +49,14 @@ li:hover {
 }
 @media (prefers-reduced-motion: no-preference) {
   .projects-sub-animation {
-    animation: wipe-enter 1s 1;
+    animation:  2s 1;
   }
+}
+
+.projects-sub-animation {
+  animation-name: fadeInUp;
+  animation-duration: 1s;
+
 }
 
 
@@ -67,6 +68,15 @@ body {
 .experience {
   background-color: #D2E2EC;
 
+}
+
+#horizontal-nav {
+  transition: height 4s;
+  width: 100%;
+}
+
+#horizontal-nav:hover {
+  height: 100px;
 }
 
 .row .card:hover {
@@ -89,14 +99,6 @@ body {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 .custom-message {
   font-size: 10px;
