@@ -26,7 +26,7 @@ window.addEventListener('scroll', (e) => {
       <style>{'body { background-color: #E5E5E5; }'}</style>
     </Helmet>
       <Header />
-    <div> <img width="300px" className="img-thumbnail rounded mx-auto d-block" alt="me in Red Tesla jacket" src={photo}/>
+    <div> <img width="300px" className="img-thumbnail rounded mx-auto d-block" alt="Matthew Hodges" src={photo}/>
     </div>
 <div className="card p-5 m-3 shadow">
     <h3> About Me</h3>

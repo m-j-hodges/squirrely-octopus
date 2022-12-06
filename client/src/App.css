@@ -70,14 +70,7 @@ body {
 
 }
 
-#horizontal-nav {
-  transition: height 4s;
-  width: 100%;
-}
 
-#horizontal-nav:hover {
-  height: 100px;
-}
 
 .row .card:hover {
   background-color: #EFEBE8;
