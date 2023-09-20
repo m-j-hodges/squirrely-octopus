@@ -74,7 +74,12 @@ body {
 
 .row .card:hover {
   background-color: #EFEBE8;
+}
 
+.tesla-text-color {
+  color: rgb(131, 13, 13);
+  font-weight: bold;
+  font-size: 14px;
 }
 
 .App-header {

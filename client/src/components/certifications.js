@@ -20,7 +20,7 @@ function Certs() {
 return (
   <div>
     <Helmet>
-      <style>{'body { background-color: #E5E5E5; }'}</style>
+      <style>{'body { background-color: #F0C33F; }'}</style>
     </Helmet>
       <Header /> 
   <h3> My Certifications </h3>

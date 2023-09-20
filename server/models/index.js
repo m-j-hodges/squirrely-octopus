@@ -1,3 +1,3 @@
-const Inquiry = require('./inquiry')
+const Inquiry = require("./inquiry");
 
 module.exports = Inquiry;

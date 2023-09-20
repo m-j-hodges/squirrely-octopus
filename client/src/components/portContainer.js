@@ -15,22 +15,42 @@ const [currentPage, setCurrentPage] = useState('Home')
 
 
 const renderPage = () => {
-  if (currentPage === 'Home') {
-    return <Home />
+  switch(currentPage) {
+    case "Home":
+      return <Home />
+      break;
+    case "AboutMe":
+      return <AboutMe />
+      break;
+      case 'Contact':
+      return <Contact/>
+      break;
+    case "Resume":
+      return <Resume />
+      break;
+    case "Portfolio":
+      return <Portfolio/>
+      break;
+    default:
+      return <Contact />
+      break;
   }
-  if (currentPage === 'AboutMe') {
-    return <AboutMe />;
-  }
-  if (currentPage === 'Contact') {
-    return <Contact />;
-  }
-  if (currentPage === 'Resume') {
-    return <Resume />;
-  }
-  if (currentPage === 'Portfolio') {
-    return <Portfolio />;
-  }
-  return <Contact />;
+  // if (currentPage === 'Home') {
+  //   return <Home />
+  // }
+  // if (currentPage === 'AboutMe') {
+  //   return <AboutMe />;
+  // }
+  // if (currentPage === 'Contact') {
+  //   return <Contact />;
+  // }
+  // if (currentPage === 'Resume') {
+  //   return <Resume />;
+  // }
+  // if (currentPage === 'Portfolio') {
+  //   return <Portfolio />;
+  // }
+  // return <Contact />;
 }
 
 const handlePageChange = (page) => setCurrentPage(page)

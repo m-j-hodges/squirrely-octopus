@@ -1,5 +1,5 @@
-const {Schema, model} = require('mongoose')
-const mongoose = require('mongoose')
+const { Schema, model } = require("mongoose");
+const mongoose = require("mongoose");
 
 const inquirySchema = new Schema({
   message: {
@@ -7,12 +7,10 @@ const inquirySchema = new Schema({
     minlength: 1,
     maxlength: 280,
   },
-  email: { type: String},
+  email: { type: String },
   name: { type: String },
-  }
-)
+});
 
-const Inquiry = mongoose.model('inquiry', inquirySchema);
-
+const Inquiry = mongoose.model("inquiry", inquirySchema);
 
 module.exports = Inquiry;
