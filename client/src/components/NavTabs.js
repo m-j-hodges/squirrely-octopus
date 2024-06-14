@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -20,37 +20,14 @@ import {Helmet} from 'react-helmet-async'
 
 
 function Header({currentPage, handlePageChange}) {
-let modIntro = useRef('')
+let modIntro = useRef("");
 let [welcomeVar, setWelcomeVar] = useState('')
 let intro = useRef('Welcome to my Portfolio!')
-let i = useRef(0)
-
-useEffect(() => {
+let [count,setCount] = useState(0)
 
 
-const interval = setInterval(() => {
-  let newIntro = 'Welcome to my Portfolio!'
 
-    const splitIntro =  newIntro.split('')
-    modIntro.current += splitIntro[i.current]
-    console.log(modIntro.current)
-    console.log(i)
-    setWelcomeVar(modIntro.current)
-    i.current += 1
-  if(modIntro.current.length === splitIntro.length) {
-  // modIntro.current = ''
-  // setWelcomeVar('')
-  // i.current = 0
-  clearInterval(interval)
-}
-  
-  // if(i == intro.split('').length) { i= 0}
-  
-}, 100)
 
-return () => clearInterval(interval)
-
-}, [modIntro, i])
 
 return (
 <div>
@@ -97,7 +74,7 @@ return (
 
   </nav> 
   <div className="m-3 p-5 text-center navtabs rounded-5 shadow p-3 mb-5 rounded">
-    <h1 className="mb-3 text-title">{welcomeVar}</h1>
+    <h1 className="mb-3 text-title">{intro.current}</h1>
   </div>
 </div>
 
