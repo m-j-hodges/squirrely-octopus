@@ -19,8 +19,6 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.use(timeout("10s"))
-
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
