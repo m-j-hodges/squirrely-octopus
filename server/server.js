@@ -5,6 +5,7 @@ const PORT = process.env.PORT || 3001
 const app = express();
 const path = require('path')
 const routes = require('./routes')
+const cors = require("cors");
 
 
 
@@ -12,6 +13,7 @@ const db = require('./connection/config');
 app.use(express.static(path.join(__dirname, '../client/build')));
 app.use(express.static(path.join(__dirname, './public')));
 
+app.use(cors());
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
