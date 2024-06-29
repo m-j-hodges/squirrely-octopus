@@ -6,19 +6,14 @@ import axios from 'axios';
 import {useEffect, useState, useRef} from 'react'
 import Contact from './Contact';
 import {useNavigate } from 'react-router-dom'
+import imgUrl from '../files/img1.jpg';
 
 function Portfolio() {
 const navigate = useNavigate()
 
 const refreshPage = () => navigate(0)
 
-const [imgUrl0, setImgUrl0] = useState('')
-const [imgUrl1, setImgUrl1] = useState('')
-const [imgUrl2, setImgUrl2] = useState('')
-const [imgUrl3, setImgUrl3] = useState('')
-const [imgUrl4, setImgUrl4] = useState('')
-const [imgUrl5, setImgUrl5] = useState('')
-const imageUrl = useRef('http://' + window.location.hostname + ':3001/api/getImage')
+
 
 
 
@@ -43,7 +38,7 @@ let cardInfo = [
     <h4 className="card-title">Projects I have completed </h4>
     <div className="row p-3">
       {cardInfo && cardInfo.map((card) => (<div className="card sm-col-3 p-3 m-2" style={{width: 18 + 'rem'}}>
-  <img width="100%" src={imageUrl.current} className="card-img-top" alt="..." />
+      <img width="100%" src={imgUrl} className="card-img-top" alt="..." />
   <div className="card-body">
     <h5 className="card-title">{card.cardTitle}</h5>
     <p className="card-text">{card.cardText || card.cardLink}</p>
