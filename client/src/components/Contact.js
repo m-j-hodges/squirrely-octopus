@@ -26,7 +26,7 @@ function Contact() {
 const handleFormSubmit = (e) => {
 e.preventDefault();
 
-const postUrl = '/api'
+const postUrl = 'http://localhost:3001/api'
 
 setShow(true)
 if(validateFieldsLength([userName, email, message]) && validateEmail(email)) {
