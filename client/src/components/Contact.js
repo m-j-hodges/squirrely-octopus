@@ -26,7 +26,7 @@ function Contact() {
 const handleFormSubmit = (e) => {
 e.preventDefault();
 
-const postUrl = 'http://localhost:3001/api'
+const postUrl = process.env.NODE_ENV === "development" ? 'https://localhost:3001/api' : 'https://my-react-portfolio-10-19-2022.herokuapp.com:3001/api';
 
 setShow(true)
 if(validateFieldsLength([userName, email, message]) && validateEmail(email)) {
