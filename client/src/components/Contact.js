@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { validateEmail, checkInputLength } from '../utils/helpers';
+import { validateEmail, checkInputLength, validateFieldsLength } from '../utils/helpers';
 import Header from "./NavTabs"
 import $ from 'jquery'
 import Button from 'react-bootstrap/Button'
@@ -29,7 +29,7 @@ e.preventDefault();
 const postUrl = '/api'
 
 setShow(true)
-if(userName !== null && email !== null && message !== null) {
+if(validateFieldsLength([userName, email, message]) && validateEmail(email)) {
 axios.post(postUrl, {
   body: {name: userName, email: email, message: message}
 }).then((res) => {

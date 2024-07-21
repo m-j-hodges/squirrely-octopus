@@ -1,11 +1,14 @@
 const {connect, connection} = require('mongoose');
 
+
+const clientOptions = { serverApi: { version: '1', strict: true, deprecationErrors: true}, useNewUrlParser: true,
+useUnifiedTopology: true, };
 connect(
-  process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/portfolio_db',
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }
-);
+    process.env.MONGODB, clientOptions
+  ).catch((err) => {
+
+    console.log(err)
+  })
+
 
 module.exports = connection;

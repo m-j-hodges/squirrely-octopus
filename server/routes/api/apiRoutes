@@ -1,52 +1,87 @@
 
 const router = require('express').Router();
+require('dotenv').config();
 const Inquiry = require('../../models')
 const nodemailer = require('nodemailer')
 const fs = require('fs')
 const path = require('node:path')
+const { google } = require("googleapis");
+const OAuth2 = google.auth.OAuth2;
+const mongoose = require("mongoose");
+
+const createTransporter = async () => {
+  const oauth2Client = new OAuth2(
+    process.env.CLIENT_ID,
+    process.env.CLIENT_SECRET,
+    "https://developers.google.com/oauthplayground"
+  )
+  
+  oauth2Client.setCredentials({
+    refresh_token: process.env.REFRESH_TOKEN
+  })
+
+  oauth2Client.refreshHandler = () => {
+    oauth2Client.refreshToken(process.env.REFRESH_TOKEN)
+
+  }
+
+  const accessToken = new Promise((resolve, reject) => {
+  
+    oauth2Client.getAccessToken((err, token) => {
+  if(err){
+    reject(`failed to create token because of error: ${err}`)
+  }
+  resolve(token);
+  })
+  
+  })
 
 
 let transporter = nodemailer.createTransport({
-  service: 'gmail',
+  service: "gmail",
   auth: {
     type: 'OAuth2',
-    user: 'avidrunner07@gmail.com',
-    pass: '|w?c;MU$Ge[Y ',
-    clientId: '200277711136-l2a5lbfb2mn2il0tbfa37mrejoomdlh1.apps.googleusercontent.com',
-    clientSecret: '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',
-    refreshToken: '1//044AttB3w8Ly-CgYIARAAGAQSNwF-L9IrqNHspDm6DUe7pkya2Q_VXgInByKbSj42rqC044RqGg-t5jKrDVN4AO7Fk1fCnWnsZH4'
+    user: process.env.EMAIL,
+    accessToken: accessToken,
+    clientId: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
+    refreshToken: process.env.REFRESH_TOKEN
   }
 })
 
-let mailOptions = {
-  from: 'avidrunner07@gmail.com',
-  to: '',
-  subject: 'Thank you for reaching out from Matt Hodges',
-  text: 'Thank you for reaching out to me. I will respond within the next few days.'
-};
+return transporter
+}
+
+
+let sendEmail = async (emailOpts) => {
+  let emailTransporter = await createTransporter();
+await emailTransporter.sendMail(emailOpts);
+}
 
 router.post('/', async (req, res) => {
 const username = req.body.body.name
 const newEmail = req.body.body.email
 const newMessage = req.body.body.message
 
-try {
-const newInquiry = Inquiry.create({name: username, email: newEmail, message: newMessage})
-.then((result) => {console.log(result)
+const newInquiry = await Inquiry.create([{name: username, email: newEmail, message: newMessage}])
 
 
-res.status(200).json({success:true})
-})
+
+const emailOptions = {
+  from: process.env.EMAIL,
+  to: newEmail,
+  subject: 'Thank you for contacting Matthew Hodges',
+  text: 'Thank you for reaching out to me. I will respond within the next few days.'
+};
+
+try{
+  sendEmail(emailOptions);
+
+} catch(err) {
+console.log(`There was an error: ${err} `)
+
 }
-catch {
-res.json({message: 'There was an error saving your message.'})
-}
-const findNewRecord = await Inquiry.findOne({email: newEmail})
-mailOptions.to = findNewRecord.email
-transporter.sendMail(mailOptions, (error, info) => {
-  error ? console.log(error) : console.log( `Email sent: ${info.response}`)
 
-})
 }
 )
 

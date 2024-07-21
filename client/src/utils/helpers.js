@@ -4,8 +4,23 @@ export function validateEmail(email) {
   return checkEmail.test(String(email).toLowerCase());
 }
 
-export function checkInputLength(input) {
+
+export function validateFieldsLength(fields){
+  var isValid = false;
   
+  if(fields.length){
+    fields.forEach((value, i) => {
+      value.length > 0 ? isValid = true : isValid = false
+
+    })
+
+    return isValid;
+
+  }
+
+}
+
+export function checkInputLength(input) {
   if(input.count > 0) {
     return true
   }

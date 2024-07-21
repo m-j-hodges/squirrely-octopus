@@ -11,6 +11,6 @@ const inquirySchema = new Schema({
   name: { type: String },
 });
 
-const Inquiry = mongoose.model("inquiry", inquirySchema);
+const Inquiry = mongoose.model("Inquiry", inquirySchema);
 
 module.exports = Inquiry;
