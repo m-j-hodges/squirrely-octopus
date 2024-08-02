@@ -35,15 +35,16 @@ let cardInfo = [
     </Helmet>
       <Header/>
 <div className="card p-3">
-    <h4 className="card-title">Projects I have completed </h4>
+    <h4 className="card-title">My Projects </h4>
     <div className="row p-3">
       {cardInfo && cardInfo.map((card) => (<div className="card sm-col-3 p-3 m-2" style={{width: 18 + 'rem'}}>
-      <img width="100%" src={imgUrl} className="card-img-top" alt="..." />
+      <img width="100%" src={imgUrl} className="card-img-top" alt="image of coding" title={`${card.title}`} />
   <div className="card-body">
-    <h5 className="card-title">{card.cardTitle}</h5>
-    <p className="card-text">{card.cardText || card.cardLink}</p>
-    <a href={card.cardLink} className="btn btn-primary d-flex justify-content-center">View project</a>
+    <h5 className="card-title" style={{height:5 + "em"}}>{card.cardTitle}</h5>
   </div>
+    <div className="card-footer">
+    <a href={card.cardLink} className="btn btn-primary d-flex justify-content-center">View project</a>
+    </div>
 </div>))}
   </div>
     
