@@ -59,9 +59,9 @@ await emailTransporter.sendMail(emailOpts);
 }
 
 router.post('/', async (req, res) => {
-const username = req.body.body.name
-const newEmail = req.body.body.email
-const newMessage = req.body.body.message
+const username = req.body.name
+const newEmail = req.body.email
+const newMessage = req.body.message
 
 const newInquiry = await Inquiry.create([{name: username, email: newEmail, message: newMessage}])
 

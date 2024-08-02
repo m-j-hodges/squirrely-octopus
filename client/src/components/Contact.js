@@ -29,8 +29,8 @@ function Contact() {
 
     const postUrl =
       window.location.hostname === "my-react-portfolio-10-19-2022.herokuapp.com"
-        ? "https://my-react-portfolio-10-19-2022.herokuapp.com:3001/api"
-        : "https://localhost:3001/api";
+        ? "http://my-react-portfolio-10-19-2022.herokuapp.com:3001/api"
+        : "http://localhost:3001/api";
 
     setShow(true);
     if (
@@ -39,7 +39,7 @@ function Contact() {
     ) {
       axios
         .post(postUrl, {
-          body: { name: userName, email: email, message: message },
+          name: userName, email: email, message: message
         })
         .then((res) => {
           console.log(res);
@@ -156,7 +156,7 @@ function Contact() {
           </div>
           <button
             className="btn btn-primary m-3"
-            type="submit"
+            type="button"
             variant="primary"
             onClick={(e) => handleFormSubmit(e)}
           >
