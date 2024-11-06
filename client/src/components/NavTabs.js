@@ -22,7 +22,6 @@ import {Helmet} from 'react-helmet-async'
 function Header({currentPage, handlePageChange}) {
 let modIntro = useRef("");
 let [welcomeVar, setWelcomeVar] = useState('')
-let intro = useRef('Welcome to my Portfolio!')
 let [count,setCount] = useState(0)
 
 
@@ -30,13 +29,13 @@ let [count,setCount] = useState(0)
 
 
 return (
-<div>
+<div className="bg-transparent">
   <nav> 
-  <div id="hamburger-dropdown" className="dropdown">
-  <div width="70px" height="50px" className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+  <div id="hamburger-dropdown" className="dropdown text-white">
+  <div width="70px" height="50px" className="btn btn-secondary dropdown-toggle text-white" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
     <img width="30px" className="p-2" alt="hamburger_menu" src={hamburger}></img>
   </div>
-  <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+  <ul className="dropdown-menu text-white" aria-labelledby="dropdownMenuButton1">
     <li className="dropdown-item"><Link to="/About"> About Me</Link></li>
     <li className="dropdown-item"><Link to="/portfolio">Portfolio</Link> </li>
     <li className="dropdown-item"><Link to="/contact">Contact Me</Link></li>
@@ -44,28 +43,28 @@ return (
     <li className="dropdown-item"><Link to="/Certs"> Certifications </Link></li> 
   </ul>
   </div>
-  <div id="horizontal-nav" className="navbar navbar-expand-lg bg-light">
+  <div id="horizontal-nav" className="navbar navbar-expand-lg text-white">
   <div className="container-fluid">
-    <a className="navbar-brand" href="/">Matt Hodges</a>
-    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <a className="navbar-brand bg-transparent text-white" href="/">Matt Hodges</a>
+    <button className="navbar-toggler text-white bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
-    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+    <div className="collapse navbar-collapse text-white" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
-          <Link className="nav-link active" to="/">About Me</Link>
+          <Link className="nav-link active text-white" to="/">About Me</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/portfolio">Portfolio</Link>
+          <Link className="nav-link text-white" to="/portfolio">Portfolio</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/resume">Resume</Link>
+          <Link className="nav-link text-white" to="/resume">Resume</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/Certs">Certifications</Link>
+          <Link className="nav-link text-white" to="/Certs">Certifications</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/contact">Contact Me</Link>
+          <Link className="nav-link text-white" to="/contact">Contact Me</Link>
         </li>
       </ul>
     </div>
@@ -74,7 +73,7 @@ return (
 
   </nav> 
   <div className="m-3 p-5 text-center navtabs rounded-5 shadow p-3 mb-5 rounded">
-    <h1 className="mb-3 text-title">{intro.current}</h1>
+    <h1 className="mb-3 text-title">Welcome to my Portfolio</h1>
   </div>
 </div>
 

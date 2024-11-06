@@ -6,7 +6,7 @@ class Application extends React.Component {
     return (
       <div className="application">
       <Helmet>
-          <style>{'body { background-color: red; }'}</style>
+          <style>{'body { background-color: black; }'}</style>
       </Helmet>
       ...
   </div>

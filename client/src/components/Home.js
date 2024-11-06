@@ -6,10 +6,10 @@ function Home() {
 
   return (
     <div>
-    <Helmet>
-      <style>{'body { background-color: #E5E5E5; }'}</style>
-    </Helmet>
     <Header />
+    <Helmet>
+        <style>{"body { background-color: black; }"}</style>
+      </Helmet>
     <div className="experience">
     <h2> This is my Home Page</h2>
     <p> Welcome to my portfolio, which I built using React </p>

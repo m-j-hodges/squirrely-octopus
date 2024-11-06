@@ -15,9 +15,17 @@ li {
   border-radius: 6px;
 }
 
-li:hover {
+/* li:hover {
   background-color: #DEEDF0;
 
+} */
+
+li:hover{
+  transition: ease-in-out all .1s; 
+  -moz-transition: ease-in-out all .1s;
+  -webkit-transition: ease-in-out all .1s;
+  border: 1px white solid;
+  text-decoration:none;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
@@ -57,11 +65,6 @@ li:hover {
   animation-name: fadeInUp;
   animation-duration: 1s;
 
-}
-
-
-body {
-  background-color: green;
 }
 
 

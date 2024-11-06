@@ -19,10 +19,10 @@ function Certs() {
 
 return (
   <div>
-    <Helmet>
-      <style>{'body { background-color: #F0C33F; }'}</style>
-    </Helmet>
-      <Header /> 
+      <Header />
+      <Helmet>
+        <style>{"body { background-color: black; }"}</style>
+      </Helmet> 
   <h3> My Certifications </h3>
   <Document 
     className="border border-secondary doc-border" file={myCert} onLoadSuccess={onDocumentLoadSuccess} >

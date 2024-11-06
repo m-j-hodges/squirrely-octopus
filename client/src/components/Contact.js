@@ -107,10 +107,10 @@ function Contact() {
 
   return (
     <div>
-      <Helmet>
-        <style>{"body { background-color: #E5E5E5; }"}</style>
-      </Helmet>
       <Header />
+      <Helmet>
+        <style>{"body { background-color: black; }"}</style>
+      </Helmet>
       <div>
         <p> This website was built by Matthew Hodges using React</p>
         <h5> Contact Me using the form below: </h5>
