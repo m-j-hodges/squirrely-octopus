@@ -15,17 +15,57 @@ li {
   border-radius: 6px;
 }
 
+p{
+  color: white;
+}
+
+label{
+  color: white;
+}
+
+h3 {
+  color: white;
+}
+
+h5 {
+  color: white;
+}
+
 /* li:hover {
   background-color: #DEEDF0;
 
 } */
 
-li:hover{
+/* li:hover{
   transition: ease-in-out all .1s; 
   -moz-transition: ease-in-out all .1s;
   -webkit-transition: ease-in-out all .1s;
   border: 1px white solid;
   text-decoration:none;
+} */
+
+nav a{
+  text-decoration: none;
+  color: white;
+  position: relative;
+  display:inline-block;
+  border: none;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  display:block;
+  margin-top: 5px;
+  left: 0;
+  background-color: white;
+  transition: width 0.4s ease-in-out;
+}
+
+nav a:hover::after {
+  width: 100%
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
@@ -100,15 +140,16 @@ li:hover{
   color: #61dafb;
 }
 
+.navtabs{
+  color: white;
+}
+
 
 .custom-message {
   font-size: 10px;
 
 }
-.navtabs {
-  background-color: #C6EBFF;
 
-}
 .doc-border {
   border-radius: 8px;
 

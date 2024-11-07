@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 import photo from "../files/recent_photo.jpg";
 import Footer from "./footer";
 import "animate.css";
+import "../About.css"
 
 function AboutMe() {
   let animateBox = useRef("");
@@ -60,7 +61,7 @@ function AboutMe() {
         </p>
       </div>
       <div className="card p-5 m-3 shadow" ref={animateBox} id="projects-sub">
-        <h5> Projects </h5>
+        <h5> Links to completed projects</h5>
         <a href="https://positive-thoughts-9-28-2022.herokuapp.com">
           <p> Website about Positive Quotes </p>{" "}
         </a>
