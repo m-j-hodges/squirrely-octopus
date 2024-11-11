@@ -3,6 +3,7 @@ import {
   validateEmail,
   checkInputLength,
   validateFieldsLength,
+  toLower
 } from "../utils/helpers";
 import Header from "./NavTabs";
 import $ from "jquery";
@@ -89,7 +90,8 @@ function Contact() {
       }
     }
     if (inputType === "email") {
-      setEmail(inputValue);
+      var inputValueToLower = inputValue.toLowerCase()
+      setEmail(inputValueToLower);
 
       if (validateEmail(email)) {
         setErrorMessage("This is a valid email.");
