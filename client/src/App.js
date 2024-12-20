@@ -26,20 +26,12 @@ function App() {
     path="/" 
     element={<About />}/>
     <Route
-    path="/certs"
-    element={<Certs />}
-    />
-    <Route
     path="/contact"
     element={<Contact/>}
     />
     <Route
     path="/portfolio"
     element={<Portfolio />}
-    />
-    <Route
-    path="/resume"
-    element={<Resume />}
     />
     <Route
     path="/About"

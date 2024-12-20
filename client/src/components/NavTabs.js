@@ -58,12 +58,6 @@ return (
           <Link className="nav-link text-white" to="/portfolio">Portfolio</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link text-white" to="/resume">Resume</Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link text-white" to="/Certs">Certifications</Link>
-        </li>
-        <li className="nav-item">
           <Link className="nav-link text-white" to="/contact">Contact Me</Link>
         </li>
       </ul>
