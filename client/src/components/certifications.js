@@ -1,6 +1,5 @@
 import React from 'react'
 import {Document, Page} from "react-pdf/dist/esm/entry.webpack5"
-import myCert from '../files/Matt_Hodges.pdf'
 import Footer from './footer'
 import {useState } from 'react'
 import {Helmet} from 'react-helmet-async'
@@ -23,9 +22,9 @@ return (
       <Helmet>
         <style>{"body { background-color: black; }"}</style>
       </Helmet> 
-  <h3> My Certifications </h3>
+  <h3>My Certifications</h3>
   <Document 
-    className="border border-secondary doc-border" file={myCert} onLoadSuccess={onDocumentLoadSuccess} >
+    className="border border-secondary doc-border" onLoadSuccess={onDocumentLoadSuccess} >
       <Page pageNumber={pageNumber}></Page>
     </Document>
     <Footer />

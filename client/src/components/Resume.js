@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import fileDownload from "js-file-download";
-import myPDF from "../files/myResume.pdf";
 import Header from "./NavTabs";
 import { Document, Page } from "react-pdf/dist/esm/entry.webpack5";
 import { Helmet } from "react-helmet-async";
@@ -34,13 +33,12 @@ function Resume() {
       <div className="row">
         <div className="col-3"> </div>
         <div className="col-6">
-          <a className="btn btn-primary" href={myPDF} download="My_file.pdf">
+          <a className="btn btn-primary" download="My_file.pdf">
             {" "}
             Download file{" "}
           </a>
           <Document
             className="border border-secondary doc-border w-80"
-            file={myPDF}
             onLoadSuccess={onDocumentLoadSuccess}
           >
             <Page pageNumber={pageNumber} />

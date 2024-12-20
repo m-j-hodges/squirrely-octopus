@@ -45,7 +45,7 @@ return (
   </div>
   <div id="horizontal-nav" className="navbar navbar-expand-lg text-white">
   <div className="container-fluid">
-    <a className="navbar-brand bg-transparent text-white" href="/">Matt Hodges</a>
+    <a className="navbar-brand bg-transparent text-white" href="/">Matthew Hodges</a>
     <button className="navbar-toggler text-white bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
