@@ -52,7 +52,7 @@ function Portfolio() {
     <div>
       <Header />
       <Helmet>
-        <style>{"body { background-color: black; }"}</style>
+        <style>{"body { background-color: #081A28; }"}</style>
       </Helmet>
       <div className="card p-3">
         <h4 className="card-title">My Projects </h4>

@@ -1,5 +1,7 @@
 p {
   color: black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-indent: 3%;
 }
 
 h5{
@@ -8,4 +10,8 @@ h5{
 
 h3{
   color: black;
+}
+
+.bold-text{
+  font-weight:bold;
 }

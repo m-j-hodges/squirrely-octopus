@@ -26,7 +26,7 @@ function Resume() {
     <div>
       <Header />
       <Helmet>
-        <style>{"body { background-color: black; }"}</style>
+        <style>{"body { background-color: #081A28; }"}</style>
       </Helmet>
       <h4 className="p-5 text-center"> Matthew Hodges' Resume</h4>
 

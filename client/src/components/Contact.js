@@ -111,11 +111,9 @@ function Contact() {
     <div>
       <Header />
       <Helmet>
-        <style>{"body { background-color: black; }"}</style>
+        <style>{"body { background-color: #081A28; }"}</style>
       </Helmet>
       <div>
-        <p> This website was built by Matthew Hodges using React</p>
-        <h5> Contact Me using the form below: </h5>
         <form className="p-5">
           <div className="form-group">
             <label for="form2">Name:</label>

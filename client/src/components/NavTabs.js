@@ -52,7 +52,7 @@ return (
     <div className="collapse navbar-collapse text-white" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
-          <Link className="nav-link active text-white" to="/">About Me</Link>
+          <Link className="nav-link active text-white" to="/About">About Me</Link>
         </li>
         <li className="nav-item">
           <Link className="nav-link text-white" to="/portfolio">Portfolio</Link>
@@ -66,7 +66,7 @@ return (
 </div>
 
   </nav> 
-  <div className="m-3 p-5 text-center navtabs rounded-5 shadow p-3 mb-5 rounded">
+  <div className="text-center navtabs rounded-5 shadow pt-3 mb-5 rounded">
     <h1 className="mb-3 text-title">Welcome to my Portfolio</h1>
   </div>
 </div>

@@ -8,7 +8,7 @@ function Home() {
     <div>
     <Header />
     <Helmet>
-        <style>{"body { background-color: black; }"}</style>
+        <style>{"body { background-color: #081A28; }"}</style>
       </Helmet>
     <div className="experience">
     <h2> This is my Home Page</h2>
