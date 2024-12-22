@@ -42,22 +42,41 @@ router.post("/", async (req, res) => {
   const newMessage = req.body.message;
 
   const newInquiry = await Inquiry.create([
-    { name: username, email: newEmail, message: newMessage },
+    { name: username, email: newEmail, message: newMessage, recordDate: new Date() },
   ]);
-
+  // email to inquirer.
   const emailOptions = {
     from: "mjhodges@zoho.com",
     to: newEmail,
     subject: "Thank you for contacting Matthew Hodges",
     text: "Thank you for reaching out to me. I will respond within the next few days.",
   };
-
+  console.log(newInquiry[0].recordDate.toLocaleString())
   try {
     let result = false;
     result = await sendEmail(emailOptions);
+    // email to record that the inquirer emailed me.
+    let emailText = `<h3>New Inquiry to Matt's Portfolio website</h3>\n
+    <br>
+    <table border="1">
+    <thead><tr><th>field</th><th>value</th></tr></thead>
+    <tbody><tr><td><b>From</b></td><td>${username}</td></tr>
+    <tr><td><b>Email</b></td><td>${newEmail}</td></tr>
+    <tr><td><b>Message</b></td><td>${newMessage}</td></tr>
+    <tr><td><b>Date of Inquiry</b></td><td>${newInquiry[0].recordDate.toLocaleString()}</td></tr>
+    </tbody>
+    </table>`
+    const inquiryOpts = {
+      from: "mjhodges@zoho.com",
+      // this is the email address where the record will be sent.
+      to: process.env.KEMAIL,
+      subject: `Matt website inquiry from ${username}`,
+      html: emailText
+    }
+    const recordEmail = await sendEmail(inquiryOpts);
     res.send({message:"mail successfully send."});
   } catch (err) {
-    console.log(`There was an error: ${err} `);
+    console.log(`There was an error in sending the email.: ${err} `);
     res.status(500).send({message: "There was an error with sending the mail."})
   }
 });

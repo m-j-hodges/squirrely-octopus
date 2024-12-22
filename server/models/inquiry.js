@@ -9,6 +9,7 @@ const inquirySchema = new Schema({
   },
   email: { type: String },
   name: { type: String },
+  recordDate: {type: Date}
 });
 
 const Inquiry = mongoose.model("Inquiry", inquirySchema);

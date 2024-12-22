@@ -36,13 +36,6 @@ function Contact() {
     ) {
       const response = await
       axios.post(postUrl, {name: userName, email:email, message: message})
-      // await fetch(postUrl, 
-      //   {
-      //   method: "POST", 
-      //   headers: {'Content-Type' : 'application/json',
-      //             'Accept': 'application/json'}, 
-      //   body: JSON.stringify({name:userName, email: email, message: message})
-      // })
       if(response.status === 200){
         alert("The message was sent successfully.")
         setShow(true);
@@ -69,6 +62,16 @@ function Contact() {
     setName("");
     setEmail("");
     setMessage("");
+    // make the name input box display as empty.
+    const nameInput = document.querySelector("#form2")
+    nameInput.value = "";
+    // make the email input box display as empty.
+    const emailInput = document.querySelector("#form1");
+    emailInput.value = "";
+    // make the message input box display empty.
+    const msgInput = document.querySelector("#form3");
+    msgInput.value = "";
+
   };
 
   const handleInputChange = (e) => {
@@ -76,21 +79,22 @@ function Contact() {
     const inputType = target.name;
     const inputValue = target.value;
     let messageLength = inputValue.length;
-
-    if (inputType === "message") {
+    // if the name property is formMessage, do this.
+    if (inputType == "formMessage") {
       setMessage(inputValue);
 
       if (messageLength > 0) {
         setlengthMessage("This is a valid message.");
         setdisplayBlock("d-block alert alert-success custom-message");
         return;
-      } else if (messageLength <= 0) {
-        setlengthMessage("Message must be greater than 0 characters.");
+      } else {
+        setlengthMessage("Please type a message");
         setdisplayBlock("d-block alert alert-warning custom-message");
         return;
       }
     }
-    if (inputType === "email") {
+    // if the name property on the element is formEmail then do this.
+    if (inputType === "formEmail") {
       var inputValueToLower = inputValue.toLowerCase()
       setEmail(inputValueToLower);
 
@@ -115,39 +119,39 @@ function Contact() {
         <style>{"body { background-color: #081A28; }"}</style>
       </Helmet>
       <div>
-        <form className="p-5" action="http://localhost:3001/api" method="POST">
+        <form className="p-5">
           <div className="form-group">
-            <label for="form2">Name:</label>
+            <label for="formName">Name:</label>
             <input
               onChange={(e) => setName(e.target.value)}
               value={userName}
               type="input"
-              name="name"
+              name="formName"
               className="form-control"
-              id="form2"
+              id="formName"
               placeholder="Name"
             />
           </div>
           <div className="form-group">
-            <label for="form1">Email address:</label>
+            <label for="formEmail">Email address:</label>
             <input
               onChange={(e) => handleInputChange(e)}
               value={email}
               type="email"
-              name="email"
+              name="formEmail"
               className="form-control"
-              id="form1"
+              id="formEmail"
               placeholder="name@example.com"
             />
             <p className={displayEmailMessage}> {errorMessage}</p>
             <div className="form-group">
-              <label for="form3">Message:</label>
+              <label for="formMessage">Message:</label>
               <textarea
                 onChange={(e) => handleInputChange(e)}
                 value={message}
-                name="message"
+                name="formMessage"
                 className="form-control"
-                id="form3"
+                id="formMessage"
                 rows="3"
               ></textarea>
               <div>
