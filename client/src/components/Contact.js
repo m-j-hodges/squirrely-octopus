@@ -28,10 +28,7 @@ function Contact() {
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
-    const postUrl =
-      window.location.hostname === "my-react-portfolio-10-19-2022.herokuapp.com"
-        ? "https://my-react-portfolio-10-19-2022.herokuapp.com:3001/api"
-        : "http://localhost:3001/api";
+    const postUrl = "http://localhost:3001/api";
 
     setShow(true);
     if (
