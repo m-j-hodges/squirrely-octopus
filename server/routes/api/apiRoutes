@@ -11,22 +11,29 @@ const mongoose = require("mongoose");
 
 
 let sendEmail = async (emailOpts) => {
-  const transporter = nodemailer.createTransport({
-    host: "smtp.zoho.com",
-    secure: true,
-    port:465,
-    auth: {
-      user: "mjhodges@zoho.com",
-      pass: "qpEexYLfffut"
-    }
+
+  return new Promise((resolve, reject) => {
+    const transporter = nodemailer.createTransport({
+      host: "smtp.zoho.com",
+      secure: true,
+      port:465,
+      auth: {
+        user: process.env.ZOHO_EMAIL,
+        pass: process.env.ZOHO_PASS
+      }
+    })
+  
+    transporter.sendMail(emailOpts, function(err, info) {
+      if(err){
+        console.log(err);
+        throw new Error(`There was an error sending them email with the following destination: ${emailOpts.to}`)
+        resolve(false);
+      } else {
+        resolve(true);
+      }
+    })
   })
 
-  await transporter.sendMail(emailOpts, function(err, info) {
-    if(err){
-      console.log(err);
-      throw new Error(`There was an error sending them email with the following destination: ${emailOpts.to}`)
-    }
-  })
 }
 
 // route for contact me form.
@@ -49,13 +56,18 @@ const emailOptions = {
 
 
 try{
-  await sendEmail(emailOptions);
-
+let result = false;
+ result = await sendEmail(emailOptions)
+  if(result == true){
+    res.status(200).json({message:"Successfully send email."})
+  } else {
+    res.status(500).json({message:"there was a server error in sending your message."})
+  }
 } catch(err) {
 console.log(`There was an error: ${err} `)
+res.status(500).json({message:"there was a server error in sending your message."})
 
 }
-
 }
 )
 

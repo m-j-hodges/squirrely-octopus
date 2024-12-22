@@ -28,25 +28,28 @@ function Contact() {
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
-    const postUrl = "http://localhost:3001/api";
+    const postUrl = `http://${window.location.hostname}:3001/api`;
 
     setShow(true);
     if (
       validateFieldsLength([userName, email, message]) &&
       validateEmail(email)
     ) {
-      axios
-        .post(postUrl, {
-          name: userName, email: email, message: message
-        })
-        .then((res) => {
-          console.log(res);
-          if (res.data.message) {
-            setErrorMessage(res.data.message);
-          } else {
-            setErrorMessage("inquiry saved successfully.");
-          }
-        });
+      fetch(postUrl, 
+        {
+        method: "POST", 
+        headers: {'Content-Type' : 'application/json'}, 
+        body: JSON.stringify({name:userName, email: email, message: message})
+      }).then((response) => {
+        if(response.ok){
+          alert("Form Submitted Successfully");
+          setName("");
+          setEmail("");
+          setMessage("");
+        } else {
+          alert(`Form not Submitted successfully`) // to-do insert error message from server here.
+        }
+      })
     } else {
       setErrorMessage("You must provide a message, email, and name.");
     }
