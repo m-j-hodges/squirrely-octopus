@@ -28,7 +28,8 @@ function Contact() {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
-    const postUrl = `http://${window.location.hostname}:3001/api`;
+    //const postUrl = `http://${window.location.hostname}:3001/api`;
+    const postUrl = "/api"
     if (
       validateFieldsLength([userName, email, message]) &&
       validateEmail(email)
