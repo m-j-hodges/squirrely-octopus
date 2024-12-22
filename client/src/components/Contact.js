@@ -29,21 +29,24 @@ function Contact() {
     e.preventDefault();
 
     const postUrl = `http://${window.location.hostname}:3001/api`;
-
-    setShow(true);
     if (
       validateFieldsLength([userName, email, message]) &&
       validateEmail(email)
     ) {
-      const response = await fetch(postUrl, 
-        {
-        method: "POST", 
-        headers: {'Content-Type' : 'application/json'}, 
-        body: JSON.stringify({name:userName, email: email, message: message})
-      })
-      if(response.ok){
+      const response = await
+      axios.post(postUrl, {name: userName, email:email, message: message})
+      // await fetch(postUrl, 
+      //   {
+      //   method: "POST", 
+      //   headers: {'Content-Type' : 'application/json',
+      //             'Accept': 'application/json'}, 
+      //   body: JSON.stringify({name:userName, email: email, message: message})
+      // })
+      if(response.status === 200){
         alert("The message was sent successfully.")
+        setShow(true);
       } else {
+        setShow(false);
         alert("The message was not sent successfully.")
       }
 
@@ -111,7 +114,7 @@ function Contact() {
         <style>{"body { background-color: #081A28; }"}</style>
       </Helmet>
       <div>
-        <form className="p-5">
+        <form className="p-5" action="http://localhost:3001/api" method="POST">
           <div className="form-group">
             <label for="form2">Name:</label>
             <input

@@ -1,97 +1,87 @@
-
-const router = require('express').Router();
-require('dotenv').config();
-const Inquiry = require('../../models')
-const nodemailer = require('nodemailer')
-const fs = require('fs')
-const path = require('node:path')
+const router = require("express").Router();
+require("dotenv").config();
+const Inquiry = require("../../models");
+const nodemailer = require("nodemailer");
+const fs = require("fs");
+const path = require("node:path");
 const { google } = require("googleapis");
 const OAuth2 = google.auth.OAuth2;
 const mongoose = require("mongoose");
 
-
 let sendEmail = async (emailOpts) => {
-
   return new Promise((resolve, reject) => {
     const transporter = nodemailer.createTransport({
       host: "smtp.zoho.com",
       secure: true,
-      port:465,
+      port: 465,
       auth: {
         user: process.env.ZOHO_EMAIL,
-        pass: process.env.ZOHO_PASS
-      }
-    })
-  
-    transporter.sendMail(emailOpts, function(err, info) {
-      if(err){
+        pass: process.env.ZOHO_PASS,
+      },
+    });
+
+    transporter.sendMail(emailOpts, function (err, info) {
+      if (err) {
         console.log(err);
-        throw new Error(`There was an error sending them email with the following destination: ${emailOpts.to}`)
+        throw new Error(
+          `There was an error sending them email with the following destination: ${emailOpts.to}`
+        );
         resolve(false);
       } else {
         resolve(true);
       }
-    })
-  })
-
-}
-
-// route for contact me form.
-router.post('/', async (req, res) => {
-  console.log("Request received.")
-const username = req.body.name
-const newEmail = req.body.email
-const newMessage = req.body.message
-
-const newInquiry = await Inquiry.create([{name: username, email: newEmail, message: newMessage}])
-
-
-
-const emailOptions = {
-  from: "mjhodges@zoho.com",
-  to: newEmail,
-  subject: 'Thank you for contacting Matthew Hodges',
-  text: 'Thank you for reaching out to me. I will respond within the next few days.'
+    });
+  });
 };
 
+// route for contact me form.
+router.post("/", async (req, res) => {
+  console.log("Request received.");
+  const username = req.body.name;
+  const newEmail = req.body.email;
+  const newMessage = req.body.message;
 
+  const newInquiry = await Inquiry.create([
+    { name: username, email: newEmail, message: newMessage },
+  ]);
 
-try{
-let result = false;
- result = await sendEmail(emailOptions)
-    res.status(200).json({message:"Successfully send email."})
+  const emailOptions = {
+    from: "mjhodges@zoho.com",
+    to: newEmail,
+    subject: "Thank you for contacting Matthew Hodges",
+    text: "Thank you for reaching out to me. I will respond within the next few days.",
+  };
 
-} catch(err) {
-console.log(`There was an error: ${err} `)
-res.status(500).json({message:"there was a server error in sending your message."})
+  try {
+    let result = false;
+    result = await sendEmail(emailOptions);
+    res.send({message:"mail successfully send."});
+  } catch (err) {
+    console.log(`There was an error: ${err} `);
+    res.status(500).send({message: "There was an error with sending the mail."})
+  }
+});
 
-}
-}
-)
+router.get("/getImage", (req, res) => {
+  const imgArray = [
+    { img_1: "../../public/img1.jpg" },
+    { img_2: "../../public/img2.jpg" },
+    { img_3: "../../public/img3.jpg" },
+    { img_4: "../../public/img4.jpg" },
+    { img_5: "../../public/img5.jpg" },
+    { img_6: "../../public/img6.jpg" },
+  ];
 
-router.get('/getImage', (req, res) => {
-  
-const imgArray = [ 
-  {img_1: '../../public/img1.jpg'},
-  {img_2: '../../public/img2.jpg'},
-  {img_3: '../../public/img3.jpg'},
-  {img_4: '../../public/img4.jpg'},
-  {img_5: '../../public/img5.jpg'},
-  {img_6: '../../public/img6.jpg'}
-]
+  const randomImage = imgArray[Math.floor(imgArray.length * Math.random())];
+  let childRandomImage;
+  for (let value of Object.values(randomImage)) {
+    childRandomImage = value;
+  }
+  const pathRandomImage = path.join(__dirname, childRandomImage);
 
-const randomImage = imgArray[Math.floor(imgArray.length*Math.random())];
-let childRandomImage
-for(let value of Object.values(randomImage)) {
-  childRandomImage = value
-}
-const pathRandomImage = path.join(__dirname, childRandomImage)
+  res.sendFile(pathRandomImage, (err) => {
+    err ? console.log(err) : console.log("image send successfully");
+  });
+});
 
-res.sendFile(pathRandomImage, (err)=> {
- err ? console.log(err) : console.log('image send successfully')
-
-})
-
-})
-
-module.exports = router
+module.exports = router;
