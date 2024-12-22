@@ -25,7 +25,7 @@ function Contact() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
 
     const postUrl = `http://${window.location.hostname}:3001/api`;
@@ -35,21 +35,18 @@ function Contact() {
       validateFieldsLength([userName, email, message]) &&
       validateEmail(email)
     ) {
-      fetch(postUrl, 
+      const response = await fetch(postUrl, 
         {
         method: "POST", 
         headers: {'Content-Type' : 'application/json'}, 
         body: JSON.stringify({name:userName, email: email, message: message})
-      }).then((response) => {
-        if(response.ok){
-          alert("Form Submitted Successfully");
-          setName("");
-          setEmail("");
-          setMessage("");
-        } else {
-          alert(`Form not Submitted successfully`) // to-do insert error message from server here.
-        }
       })
+      if(response.ok){
+        alert("The message was sent successfully.")
+      } else {
+        alert("The message was not sent successfully.")
+      }
+
     } else {
       setErrorMessage("You must provide a message, email, and name.");
     }
