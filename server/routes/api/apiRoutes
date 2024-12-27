@@ -42,7 +42,12 @@ router.post("/", async (req, res) => {
   const newMessage = req.body.message;
 
   const newInquiry = await Inquiry.create([
-    { name: username, email: newEmail, message: newMessage, recordDate: new Date() },
+    {
+      name: username,
+      email: newEmail,
+      message: newMessage,
+      recordDate: new Date(),
+    },
   ]);
   // email to inquirer.
   const emailOptions = {
@@ -51,7 +56,7 @@ router.post("/", async (req, res) => {
     subject: "Thank you for contacting Matthew Hodges",
     text: "Thank you for reaching out to me. I will respond within the next few days.",
   };
-  console.log(newInquiry[0].recordDate.toLocaleString())
+  console.log(newInquiry[0].recordDate.toLocaleString());
   try {
     let result = false;
     result = await sendEmail(emailOptions);
@@ -65,31 +70,40 @@ router.post("/", async (req, res) => {
     <tr><td><b>Message</b></td><td>${newMessage}</td></tr>
     <tr><td><b>Date of Inquiry</b></td><td>${newInquiry[0].recordDate.toLocaleString()}</td></tr>
     </tbody>
-    </table>`
+    </table>`;
     const inquiryOpts = {
       from: "mjhodges@zoho.com",
       // this is the email address where the record will be sent.
       to: process.env.KEMAIL,
       subject: `Matt website inquiry from ${username}`,
-      html: emailText
-    }
+      html: emailText,
+    };
     const recordEmail = await sendEmail(inquiryOpts);
-    res.send({message:"mail successfully send."});
+    res.send({ message: "mail successfully send." });
   } catch (err) {
     console.log(`There was an error in sending the email.: ${err} `);
-    res.status(500).send({message: "There was an error with sending the mail."})
+    res
+      .status(500)
+      .send({ message: "There was an error with sending the mail." });
   }
 });
-
+let imgArray = [
+  { img_1: "../../public/img1.jpg" },
+  { img_2: "../../public/img2.jpg" },
+  { img_3: "../../public/img3.jpg" },
+  { img_4: "../../public/img4.jpg" },
+  { img_5: "../../public/img5.jpg" },
+  { img_6: "../../public/img6.jpg" },
+];
 router.get("/getImage", (req, res) => {
-  const imgArray = [
-    { img_1: "../../public/img1.jpg" },
-    { img_2: "../../public/img2.jpg" },
-    { img_3: "../../public/img3.jpg" },
-    { img_4: "../../public/img4.jpg" },
-    { img_5: "../../public/img5.jpg" },
-    { img_6: "../../public/img6.jpg" },
-  ];
+  //  let imgArray = [
+  //     { img_1: "../../public/img1.jpg" },
+  //     { img_2: "../../public/img2.jpg" },
+  //     { img_3: "../../public/img3.jpg" },
+  //     { img_4: "../../public/img4.jpg" },
+  //     { img_5: "../../public/img5.jpg" },
+  //     { img_6: "../../public/img6.jpg" },
+  //   ];
 
   const randomImage = imgArray[Math.floor(imgArray.length * Math.random())];
   let childRandomImage;
@@ -97,7 +111,11 @@ router.get("/getImage", (req, res) => {
     childRandomImage = value;
   }
   const pathRandomImage = path.join(__dirname, childRandomImage);
-
+  for (i = 0; i < imgArray.length; i++) {
+    if (imgArray[i] == randomImage) {
+      imgArray.splice(i, 1);
+    }
+  }
   res.sendFile(pathRandomImage, (err) => {
     err ? console.log(err) : console.log("image send successfully");
   });

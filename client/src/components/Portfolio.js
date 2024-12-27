@@ -17,35 +17,18 @@ function Portfolio() {
     {
       cardLink: "https://positive-thoughts-9-28-2022.herokuapp.com",
       cardTitle: "React App where you can see positive quotes",
-      source: "http://localhost:3001/api/getImage",
-    },
-    {
-      cardLink: "https://real-estate-top-5.herokuapp.com",
-      cardTitle:
-        "Web App where you can search for Top real estate investment properties",
-      source: "http://localhost:3001/api/getImage",
+      source: "/api/getImage",
     },
     {
       cardLink: "https://m-j-hodges.github.io/Weather-Search-engine/",
       cardTitle: "Weather search website using Javascript",
-      source: "http://localhost:3001/api/getImage",
-    },
-    {
-      cardLink: "https://m-j-hodges.github.io/Programming_Quiz/",
-      cardTitle: "Programming Quiz using Javascript",
-      source: "http://localhost:3001/api/getImage",
+      source: "/api/getImage",
     },
     {
       cardLink: "https://m-j-hodges.github.io/password_generator/",
       cardTitle: "Password generator using Javascript",
-      source: "http://localhost:3001/api/getImage",
-    },
-    {
-      cardLink: "https://github.com/m-j-hodges/Readme_Generator",
-      cardText: "This is programmed in Node.js, so there is no webpage",
-      cardTitle: "README generator using Node.js",
-      source: "http://localhost:3001/api/getImage",
-    },
+      source: "/api/getImage",
+    }
   ];
 
   return (
@@ -58,14 +41,16 @@ function Portfolio() {
         <h4 className="card-title">My Projects </h4>
         <div className="row p-3">
           {cardInfo &&
-            cardInfo.map((card) => (
+            cardInfo.map((card, index) => (
               <div
                 className="card sm-col-3 p-3 m-2"
                 style={{ width: 18 + "rem" }}
               >
                 <img
+                  key={`image${index}`}
+                  id={`image${index}`}
                   width="100%"
-                  src={imgUrl}
+                  src="/api/getImage"
                   className="card-img-top"
                   alt="image of coding"
                   title={`${card.title}`}
