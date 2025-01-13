@@ -7,6 +7,7 @@ import { useEffect, useState, useRef } from "react";
 import Contact from "./Contact";
 import { useNavigate } from "react-router-dom";
 import imgUrl from "../files/img1.jpg";
+import "../portfolio.css"
 
 function Portfolio() {
   const navigate = useNavigate();
@@ -43,33 +44,34 @@ function Portfolio() {
         <div className="row p-3">
           {cardInfo &&
             cardInfo.map((card, index) => (
-              <div
-                className="card sm-col-3 p-3 m-2"
-                style={{ width: 18 + "rem" }}
-              >
-                <img
-                  key={`image${index}`}
-                  id={`image${index}`}
-                  width="100%"
-                  src="/api/getImage"
-                  className="card-img-top"
-                  alt="coding"
-                  title={`${card.title}`}
-                />
-                <div className="card-body">
-                  <h5 className="card-title" style={{ height: 5 + "em" }}>
-                    {card.cardTitle}
-                  </h5>
-                </div>
-                <div className="card-footer">
-                  <a
-                    href={card.cardLink}
-                    className="btn btn-primary d-flex justify-content-center"
-                  >
-                    View project
-                  </a>
-                </div>
-              </div>
+                <a
+                  href={card.cardLink}
+                  className="card sm-col-3 p-3 m-2"
+                  style={{ width: 18 + "rem" }}
+                >
+                  <img
+                    key={`image${index}`}
+                    id={`image${index}`}
+                    width="100%"
+                    src="/api/getImage"
+                    className="card-img-top custom-img"
+                    alt="coding"
+                    title={`${card.title}`}
+                  />
+                  <div className="card-body">
+                    <h5 className="card-title" style={{ height: 5 + "em" }}>
+                      {card.cardTitle}
+                    </h5>
+                  </div>
+                  <div className="card-footer">
+                    <a
+                      href={card.cardLink}
+                      className="btn btn-primary d-flex justify-content-center"
+                    >
+                      View project
+                    </a>
+                  </div>
+                </a>
             ))}
         </div>
       </div>
