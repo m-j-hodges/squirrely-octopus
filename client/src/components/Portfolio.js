@@ -20,15 +20,16 @@ function Portfolio() {
       source: "/api/getImage",
     },
     {
-      cardLink: "https://m-j-hodges.github.io/Weather-Search-engine/",
-      cardTitle: "Weather search website using Javascript",
+      cardLink: "https://myphone-store-251e72aea7b9.herokuapp.com/",
+      cardTitle: "Mock Phone Store built using Angular 17/Node.js",
       source: "/api/getImage",
     },
     {
-      cardLink: "https://m-j-hodges.github.io/password_generator/",
-      cardTitle: "Password generator using Javascript",
+      cardLink: "https://m-j-hodges.github.io/Weather-Search-engine/",
+      cardTitle: "Weather search website using Javascript",
       source: "/api/getImage",
     }
+
   ];
 
   return (
@@ -52,7 +53,7 @@ function Portfolio() {
                   width="100%"
                   src="/api/getImage"
                   className="card-img-top"
-                  alt="image of coding"
+                  alt="coding"
                   title={`${card.title}`}
                 />
                 <div className="card-body">
